@@ -1,8 +1,8 @@
-package models.product;
+package models.cart;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-record AddToCartRequestRecord(
+public record AddToCartRequestRecord(
         @JsonProperty("id") String id,
         @JsonProperty("quantity") Integer quantity
 ) {

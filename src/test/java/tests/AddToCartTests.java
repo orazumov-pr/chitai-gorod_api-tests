@@ -4,7 +4,7 @@ package tests;
 import data.ProductsData;
 import models.cart.CartShortResponseRecord;
 import models.error.ProductErrorResponseRecord;
-import models.error.SearchResponseRecord;
+import models.response.SearchResponseRecord;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.cart.CartSteps;
