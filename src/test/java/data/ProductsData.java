@@ -2,20 +2,70 @@ package data;
 
 public class ProductsData {
     // Позитивные тестовые данные
-    public final String bookTitle = "Евгений Онегин";
-    public final String author = "Пушкин";
-    public final String validProductId = "1005902"; // ID существующей книги
-    public final String validProductId2 = "1008345"; // Еще одна книга
-    public final String validProductId3 = "1002646"; // Третья книга
+    private final String bookTitle = "Евгений Онегин";
+    private final String author = "Пушкин";
+    private final String validProductId = "1005902"; // ID существующей книги
+    private final String validProductId2 = "1008345"; // Еще одна книга
+    private final String validProductId3 = "1002646"; // Третья книга
 
     // Негативные тестовые данные
-    public final String errorId = "0"; // Несуществующий ID
-    public final String invalidIdFormat = "abc123"; // Неверный формат
-    public final String emptyId = "";
-    public final String productOutOfStock = "1000001"; // Товар не в наличии
+    private final String errorId = "0"; // Несуществующий ID
+    private final String invalidIdFormat = "abc123"; // Неверный формат
+    private final String emptyId = "";
+    private final String productOutOfStock = "1000001"; // Товар не в наличии
 
     // Количество товаров
-    public final int quantityOne = 1;
-    public final int quantityTwo = 2;
-    public final int quantityMax = 99;
+    private final int quantityOne = 1;
+    private final int quantityTwo = 2;
+    private final int quantityMax = 99;
+
+    // ============ ГЕТТЕРЫ ============
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getValidProductId() {
+        return validProductId;
+    }
+
+    public String getValidProductId2() {
+        return validProductId2;
+    }
+
+    public String getValidProductId3() {
+        return validProductId3;
+    }
+
+    public String getErrorId() {
+        return errorId;
+    }
+
+    public String getInvalidIdFormat() {
+        return invalidIdFormat;
+    }
+
+    public String getEmptyId() {
+        return emptyId;
+    }
+
+    public String getProductOutOfStock() {
+        return productOutOfStock;
+    }
+
+    public int getQuantityOne() {
+        return quantityOne;
+    }
+
+    public int getQuantityTwo() {
+        return quantityTwo;
+    }
+
+    public int getQuantityMax() {
+        return quantityMax;
+    }
 }

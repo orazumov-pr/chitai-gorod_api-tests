@@ -1,8 +1,8 @@
 package steps.product;
 
 import data.EndpointsData;
-import models.product.AddToCartRequestRecord;
-import models.error.ProductErrorResponseRecord;
+import models.cart.AddToCartRequestRecord;
+import models.product.ProductErrorResponseRecord;
 import models.search.SearchProductRecord;
 import org.junit.jupiter.api.Assertions;
 import steps.BaseSteps;

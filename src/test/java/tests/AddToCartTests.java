@@ -3,8 +3,7 @@ package tests;
 
 import data.ProductsData;
 import models.cart.CartShortResponseRecord;
-import models.error.ProductErrorResponseRecord;
-import models.response.SearchResponseRecord;
+import models.search.SearchResponseRecord;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.cart.CartSteps;
@@ -33,6 +32,7 @@ public class AddToCartTests extends TestBase {
         step("Проверка что результаты поиска есть", () ->
                 org.junit.jupiter.api.Assertions.assertTrue(searchResult.hasResults(), "Нет результатов поиска"));
 
+        // Теперь используется правильный метод без builder
         step("Добавление первого найденного товара в корзину", () ->
                 productSteps.addItemById(searchResult.getFirstResult(), token));
 
@@ -68,22 +68,17 @@ public class AddToCartTests extends TestBase {
     }
 
     @Test
-    @DisplayName("TC-03: Негативный тест - Добавление товара с несуществующим ID")
-    void addProductWithInvalidIdTest() {
+    @DisplayName("TC-04: Тест с валидацией количества - добавление 0 товаров")
+    void addProductWithZeroQuantityTest() {
         step("Очищаем корзину перед тестом", () -> cartSteps.deleteAllCart(token));
 
-        ProductErrorResponseRecord error = step("Попытка добавить товар с несуществующим ID", () ->
-                productSteps.addErrItemById(data.getErrorId(), token));
+        step("Попытка добавить товар с количеством 0", () ->
+                productSteps.addItemWithQuantity(data.getValidProductId(), 0));
 
-        step("Проверка получения сообщения об ошибке", () -> {
-            productSteps.checkErrMsg(error);
-            productSteps.checkErrorStatusCode(error, 400);
-        });
-
-        CartShortResponseRecord cart = step("Проверка, что корзина осталась пустой", () ->
+        CartShortResponseRecord cart = step("Проверка, что товар не был добавлен", () ->
                 cartSteps.getCartShort(token));
 
-        step("Подтверждение, что товар не был добавлен", () ->
+        step("Подтверждение, что корзина пуста", () ->
                 cartSteps.checkCartShortEmpty(cart));
     }
 }
